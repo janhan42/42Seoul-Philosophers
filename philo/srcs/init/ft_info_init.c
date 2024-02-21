@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 11:15:15 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/21 23:52:43 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/22 07:42:43 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	ft_info_init(int ac, char **av, t_info *info)
 		|| info->time_to_eat <= 0 || info->time_to_sleep <= 0
 		|| info->must_eat_count < 0
 		|| (info->ac == 6 && info->must_eat_count == 0))
-		return (FAILURE);
-	info->eat_enough = (long *)malloc(sizeof(long) * info->num_of_philo);
-	memset(info->eat_enough, 0, info->num_of_philo);
+		return (FAILURE); // 예외 처리
+	info->eat_enough = (long *)malloc(sizeof(long) * info->num_of_philo); // 몇번 먹었는지 카운트를 위해 말록
+	memset(info->eat_enough, 0, info->num_of_philo); // 몇번 먹었는지 배열을 0으로 초기화
 	return (SUCCESS);
 }
