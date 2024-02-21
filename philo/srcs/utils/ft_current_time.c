@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtol_sub.c                                    :+:      :+:    :+:   */
+/*   ft_current_time.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 11:58:52 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/21 23:15:23 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/21 21:34:21 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/21 21:35:39 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-int	ft_isspace(int c)
+long	ft_current_time(t_info *info)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
-}
+	struct timeval	time;
 
-int	ft_isalpha(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	if (gettimeofday(&time, NULL) == -1)
+		return (FAILURE);
+	return (((time.tv_sec) * 1000 + (time.tv_usec) / 1000) - info->time_booted);
 }

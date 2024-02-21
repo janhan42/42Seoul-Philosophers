@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtol_sub.c                                    :+:      :+:    :+:   */
+/*   ft_sleep.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 11:58:52 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/21 23:15:23 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/21 22:00:16 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/21 22:02:08 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-int	ft_isspace(int c)
+static int	ft_sleeping(long start_time, t_philo *philo)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
+	ft_print(philo->info, philo->philo_id, "is sleeping\n");
+	while (ft_current_time(philo->info) - start_time
+		< philo->info->time_to_sleep)
+	{
+		if (ft_check_died(philo->info, philo) == TRUE)
+			return (FAILURE);
+	}
+	return (SUCCESS);
 }
 
-int	ft_isalpha(int c)
+int	ft_sleep(t_philo *philo)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	if (ft_sleeping(ft_current_time(philo->info), philo) == FAILURE)
+		return (FAILURE);
+	return (SUCCESS);
 }

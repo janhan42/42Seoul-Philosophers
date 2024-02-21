@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtol_sub.c                                    :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 11:58:52 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/21 23:15:23 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/21 21:08:08 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/21 23:38:53 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-int	ft_isspace(int c)
+void	ft_free_philos(t_philo **philos, long count)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
+	long	i;
+
+	i = 0;
+	while (i < count)
+		free(philos[i++]);
+	free(philos);
 }
 
-int	ft_isalpha(int c)
+void	ft_free_fork(t_fork **forks, long count)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
-}
+	long	i;
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	i = 0;
+	while (i < count)
+	{
+		pthread_mutex_destroy(&(forks[i]->mutex));
+		free(forks[i++]);
+	}
+	free(forks);
 }

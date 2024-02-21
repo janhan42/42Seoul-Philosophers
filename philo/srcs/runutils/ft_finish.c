@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtol_sub.c                                    :+:      :+:    :+:   */
+/*   ft_finish.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 11:58:52 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/21 23:15:23 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/21 22:13:03 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/21 22:14:54 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
+#include <pthread.h>
 
-int	ft_isspace(int c)
+void	ft_finish(t_info *info)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
-}
-
-int	ft_isalpha(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	pthread_mutex_destroy(&(info->die_mutex));
+	pthread_mutex_destroy(&(info->finish_eat_mutxt));
+	pthread_mutex_destroy(&(info->print_mutex));
+	ft_free_fork(info->forks, info->num_of_philo);
+	ft_free_philos(info->philos, info->num_of_philo);
+	free(info->eat_enough);
 }

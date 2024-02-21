@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtol_sub.c                                    :+:      :+:    :+:   */
+/*   ft_routine.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 11:58:52 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/21 23:15:23 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/21 21:30:49 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/21 21:33:44 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-int	ft_isspace(int c)
+void	*ft_routine(void *philo)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
-}
-
-int	ft_isalpha(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	((t_philo *)philo)->last_eat_time
+		= ft_current_time(((t_philo *)philo)->info);
+	if (((t_philo *)philo)->philo_id % 2 == 1)
+		usleep(((t_philo *)philo)->info->time_to_sleep / 4 * 1000);
+	while (TRUE)
+	{
+		if (ft_eat(philo) == FAILURE)
+			break ;
+		if (ft_check_finish_eat(philo) == TRUE)
+			break ;
+		if (ft_sleep(philo) == FAILURE)
+			break ;
+		if (ft_think(philo) == FAILURE)
+			break ;
+	}
+	return (SUCCESS);
 }

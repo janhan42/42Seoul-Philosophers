@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtol_sub.c                                    :+:      :+:    :+:   */
+/*   ft_check_finish_eat.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 11:58:52 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/21 23:15:23 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/21 21:57:57 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/21 21:59:52 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
+#include <pthread.h>
 
-int	ft_isspace(int c)
+int	ft_check_finish_eat(t_philo *philo)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
-}
+	long	count;
 
-int	ft_isalpha(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	usleep(100);
+	pthread_mutex_lock(&(philo->info->finish_eat_mutxt));
+	count = 0;
+	while (count < philo->info->num_of_philo)
+	{
+		if (philo->info->eat_enough[count] == FALSE)
+		{
+			pthread_mutex_unlock(&(philo->info->finish_eat_mutxt));
+			return (FALSE);
+		}
+		count++;
+	}
+	pthread_mutex_unlock(&(philo->info->finish_eat_mutxt));
+	return (TRUE);
 }
