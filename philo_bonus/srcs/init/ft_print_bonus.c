@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_think.c                                         :+:      :+:    :+:   */
+/*   ft_print_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 22:02:27 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 09:04:10 by janhan           ###   ########.fr       */
+/*   Created: 2023/05/18 18:17:28 by jeekpark          #+#    #+#             */
+/*   Updated: 2024/02/22 14:02:59 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/philo.h"
+#include "../../includes/philo_bonus.h"
 
-int	ft_think(t_philo *philo)
+void	ft_print(t_philo *philo, long id, char *msg)
 {
-	if (ft_check_died(philo->info, philo) == TRUE) // 죽었는지 확인
-		return (FAILURE);
-	ft_print(philo->info, philo->philo_id, "is thinking\n"); // 출력
-	return (SUCCESS);
+	sem_wait(philo->print);
+	printf("%ld %ld %s", ft_current_time(philo), id, msg);
+	sem_post(philo->print);
 }

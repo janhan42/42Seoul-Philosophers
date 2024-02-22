@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_think.c                                         :+:      :+:    :+:   */
+/*   ft_current_time_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 22:02:27 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 09:04:10 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/22 13:47:15 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/22 13:48:25 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/philo.h"
+#include "../../includes/philo_bonus.h"
 
-int	ft_think(t_philo *philo)
+long	ft_current_time(t_philo *philo)
 {
-	if (ft_check_died(philo->info, philo) == TRUE) // 죽었는지 확인
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL) == -1)
 		return (FAILURE);
-	ft_print(philo->info, philo->philo_id, "is thinking\n"); // 출력
-	return (SUCCESS);
+	return (((time.tv_sec) * 1000 + (time.tv_usec) / 1000) - philo->time_booted);
 }

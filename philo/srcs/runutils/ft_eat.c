@@ -6,14 +6,11 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:37:17 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 07:42:43 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/22 08:16:46 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
-#include <pthread.h>
-#include <stdint.h>
-#include <sys/_pthread/_pthread_mutex_t.h>
 
 static int	ft_pick_right_fork(t_philo *philo)
 {

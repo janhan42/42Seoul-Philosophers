@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_think.c                                         :+:      :+:    :+:   */
+/*   ft_sem_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 22:02:27 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 09:04:10 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/22 09:46:36 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/22 09:49:02 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/philo.h"
+#include "../../includes/philo_bonus.h"
+#include <sys/fcntl.h>
+#include <sys/semaphore.h>
 
-int	ft_think(t_philo *philo)
+int	ft_sem_init(t_philo *philo)
 {
-	if (ft_check_died(philo->info, philo) == TRUE) // 죽었는지 확인
+	sem_unlink("/fork_holder");
+	philo->fork_holder
+		= sem_open("/fork_holder", O_CREAT | O_EXCL, 0, philo->num_of_philo);
+	if (philo->fork_holder == SEM_FAILED)
 		return (FAILURE);
-	ft_print(philo->info, philo->philo_id, "is thinking\n"); // 출력
+	sem_unlink("/print");
+	philo->print
+		= sem_open("/print", O_CREAT | O_EXCL, 0, 1);
+	if (philo->print == SEM_FAILED)
+		return (FAILURE);
 	return (SUCCESS);
 }

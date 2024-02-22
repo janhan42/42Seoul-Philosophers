@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_think.c                                         :+:      :+:    :+:   */
+/*   ft_strtol_sub_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 22:02:27 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 09:04:10 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/16 11:58:52 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/22 09:23:29 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/philo.h"
+#include "../../includes/philo_bonus.h"
 
-int	ft_think(t_philo *philo)
+int	ft_isspace(int c)
 {
-	if (ft_check_died(philo->info, philo) == TRUE) // 죽었는지 확인
-		return (FAILURE);
-	ft_print(philo->info, philo->philo_id, "is thinking\n"); // 출력
-	return (SUCCESS);
+	return (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f' || c == '\r');
+}
+
+int	ft_isalpha(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	else if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }
