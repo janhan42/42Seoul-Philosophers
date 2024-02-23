@@ -6,13 +6,11 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:42:31 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 16:01:20 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/23 16:24:15 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo_bonus.h"
-#include <sys/semaphore.h>
-#include <unistd.h>
 
 static void	*ft_monitoring_thread(void *philo_v)
 {

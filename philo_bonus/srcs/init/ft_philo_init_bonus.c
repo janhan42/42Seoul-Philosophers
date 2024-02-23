@@ -6,20 +6,12 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:21:31 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 11:52:56 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/23 16:24:02 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo_bonus.h"
 
-/**
- * @brief
- * info를 초기화
- * @param ac
- * @param av
- * @param philo
- * @return int
- */
 int	ft_philo_init(int ac, char **av, t_philo *philo)
 {
 	philo->ac = ac;

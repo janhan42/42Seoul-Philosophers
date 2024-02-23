@@ -6,12 +6,11 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 14:01:52 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 14:05:06 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/23 16:22:33 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo_bonus.h"
-#include <sys/semaphore.h>
 
 static void	ft_eating(long start_time, t_philo *philo)
 {

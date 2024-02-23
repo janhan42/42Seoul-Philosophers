@@ -6,13 +6,11 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 14:06:28 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 14:07:51 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/23 16:24:21 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo_bonus.h"
-#include <sys/_types/_ucontext.h>
-#include <unistd.h>
 
 static void	ft_sleeping(long start_time, t_philo *philo)
 {
