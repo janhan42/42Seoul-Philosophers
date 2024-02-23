@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:42:31 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 14:01:34 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/23 16:01:20 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_child_routine(t_philo *philo)
 
 	free(philo->child);
 	philo->lock_philo_id = ft_ltoa(philo->philo_id);
+	sem_unlink(philo->lock_philo_id);
 	philo->lock_philo = sem_open(philo->lock_philo_id, O_CREAT | O_EXCL, 0, 1);
 	if (philo->lock_philo == SEM_FAILED)
 	{

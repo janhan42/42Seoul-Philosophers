@@ -6,15 +6,26 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:51:25 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 14:23:20 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/23 01:08:21 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philo.h"
 
-/*
-	매개인자 개수 확인 -> info 초기화 -> fork 초기화 -> philos 초기화 -> 시작시간 초기화 -> 먹고 자고 생각하고 시작 -> 끝나면 ft_finish 로 메모리 해제
-*/
+
+/**
+ * @brief
+ * 매개인자 개수 확인 ->
+ * info 초기화 ->
+ * fork 초기화 ->
+ * philos 초기화 ->
+ * 시작시간 초기화 ->
+ * 먹고 자고 생각하고 시작 ->
+ * 끝나면 ft_finish 로 메모리 해제
+ * @param ac
+ * @param av
+ * @return int 성공 여부
+ */
 int	main(int ac, char **av)
 {
 	t_info	info;

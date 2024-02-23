@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_time_init.c                                     :+:      :+:    :+:   */
+/*   ft_strtol_sub.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 21:14:17 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 11:47:11 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/16 11:58:52 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/23 11:19:16 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-/**
- * @brief
- * 시간정보 초기화 함수
- * @info->time_booted = (temp_time.tv_sec) * 1000 + (temp_time.tv_usec) / 1000;
- * @param info
- * @return int 성공 여부 리턴
- */
-int	ft_time_init(t_info *info)
+int	ft_isspace(int c)
 {
-	struct timeval	temp_time;
+	return (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f' || c == '\r');
+}
 
-	if (gettimeofday(&temp_time, NULL) == -1)
-		return (FAILURE);
-	info->time_booted = (temp_time.tv_sec) * 1000 + (temp_time.tv_usec) / 1000;
-	return (SUCCESS);
+int	ft_isalpha(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	else if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }
