@@ -6,11 +6,12 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:37:17 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 11:12:58 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/27 19:25:35 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
+#include <pthread.h>
 
 /**
  * @brief
@@ -104,7 +105,11 @@ static int	ft_eating(long start_time, t_philo *philo)
 	philo->eat_count++;
 	if (philo->eat_count >= philo->info->must_eat_count
 		&& philo->info->must_eat_count != 0)
-		philo->info->eat_enough[philo->philo_id - 1] = TRUE;
+		{
+			pthread_mutex_lock(&(philo->info->eat_enough_flag));
+			philo->info->eat_enough[philo->philo_id - 1] = TRUE;
+			pthread_mutex_unlock(&(philo->info->eat_enough_flag));
+		}
 	return (SUCCESS);
 }
 

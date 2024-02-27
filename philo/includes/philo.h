@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:51:41 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/21 23:08:45 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/27 19:23:55 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_info
 	int				finish_eat_flag;
 	long			first_die_time;
 	long			*eat_enough;
+	pthread_mutex_t	eat_enough_flag;
 	pthread_mutex_t	die_mutex;
 	pthread_mutex_t	finish_eat_mutxt;
 	pthread_mutex_t	print_mutex;

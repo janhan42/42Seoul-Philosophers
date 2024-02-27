@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:04:49 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 11:46:29 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/27 19:24:37 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	ft_set_philo_vars(t_info *info, long count)
 	info->philos[count]->left_fork_up = FALSE;
 	info->philos[count]->right_fork_up = FALSE;
 	info->philos[count]->eat_count = 0;
+	pthread_mutex_init(&(info->philos[count]->info->eat_enough_flag), NULL);
 }
 
 /**
