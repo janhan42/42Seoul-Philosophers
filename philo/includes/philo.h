@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:51:41 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/27 19:23:55 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:02:41 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
-#include <sys/_pthread/_pthread_mutex_t.h>
-#include <sys/_pthread/_pthread_t.h>
+# include <sys/_pthread/_pthread_mutex_t.h>
+# include <sys/_pthread/_pthread_t.h>
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
@@ -33,13 +33,13 @@ typedef struct s_fork
 	long				fork_id;
 	int					pickable;
 	struct s_info		*info;
-	pthread_mutex_t 	mutex;
+	pthread_mutex_t		mutex;
 }	t_fork;
 
 typedef struct s_philo
 {
-	pthread_t	thread;
-	long		philo_id;
+	pthread_t		thread;
+	long			philo_id;
 	struct s_info	*info;
 	struct s_fork	*left_fork;
 	struct s_fork	*right_fork;
@@ -51,8 +51,8 @@ typedef struct s_philo
 
 typedef struct s_info
 {
-	int	ac;
-	char **av;
+	int				ac;
+	char			**av;
 	struct s_philo	**philos;
 	struct s_fork	**forks;
 	long			num_of_philo;
@@ -95,20 +95,20 @@ long	ft_current_time(t_info *info);
 void	ft_print(t_info *info, long id, char *msg);
 
 /* init */
-int	ft_info_init(int ac, char **av, t_info *info);
-int	ft_fork_init(t_info *info);
-int	ft_philo_init(t_info *info);
-int	ft_time_init(t_info *info);
+int		ft_info_init(int ac, char **av, t_info *info);
+int		ft_fork_init(t_info *info);
+int		ft_philo_init(t_info *info);
+int		ft_time_init(t_info *info);
 
 /* run */
 void	*ft_routine(void *philo);
-int	ft_check_died(t_info *info, t_philo *philo);
-int	ft_is_other_died(t_info *info);
-int	ft_check_finish_eat(t_philo *philo);
-int	ft_eat(t_philo *philo);
-int	ft_sleep(t_philo *philo);
-int	ft_think(t_philo *philo);
-int	ft_start_logic(t_info *info, t_philo **philos);
+int		ft_check_died(t_info *info, t_philo *philo);
+int		ft_is_other_died(t_info *info);
+int		ft_check_finish_eat(t_philo *philo);
+int		ft_eat(t_philo *philo);
+int		ft_sleep(t_philo *philo);
+int		ft_think(t_philo *philo);
+int		ft_start_logic(t_info *info, t_philo **philos);
 void	ft_finish(t_info *info);
 
 #endif

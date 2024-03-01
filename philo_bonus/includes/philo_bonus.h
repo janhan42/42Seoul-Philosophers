@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:14:48 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 14:09:24 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:03:39 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,21 @@ typedef struct s_strtol
 }	t_strtol;
 
 /* utils */
-int	ft_error(char *msg, int error_code);
+int		ft_error(char *msg, int error_code);
 long	ft_atol(const char *str);
 long	ft_strtol(const char *nptr, char **endptr, int base);
 long	ft_current_time(t_philo *philo);
 char	*ft_ltoa(long n);
 void	ft_print(t_philo *philo, long id, char *msg);
-int	ft_isspace(int c);
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
+int		ft_isspace(int c);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+
 /* init */
-int	ft_philo_init(int ac, char **av, t_philo *philo);
-int	ft_sem_init(t_philo *philo);
-int	ft_time_init(t_philo *philo);
+int		ft_philo_init(int ac, char **av, t_philo *philo);
+int		ft_sem_init(t_philo *philo);
+int		ft_time_init(t_philo *philo);
+
 /* run utils */
 void	ft_eat(t_philo *philo);
 void	ft_sleep(t_philo *philo);

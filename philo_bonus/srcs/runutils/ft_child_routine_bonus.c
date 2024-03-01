@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:42:31 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 16:24:15 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:05:05 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	*ft_monitoring_thread(void *philo_v)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)philo_v;
 	while (TRUE)

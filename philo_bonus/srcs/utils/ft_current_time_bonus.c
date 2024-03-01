@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:47:15 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/22 13:48:25 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:05:25 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ long	ft_current_time(t_philo *philo)
 
 	if (gettimeofday(&time, NULL) == -1)
 		return (FAILURE);
-	return (((time.tv_sec) * 1000 + (time.tv_usec) / 1000) - philo->time_booted);
+	return (((time.tv_sec) * 1000
+			+ (time.tv_usec) / 1000) - philo->time_booted);
 }

@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:14:41 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 16:29:59 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:04:53 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ static void	ft_create_child(t_philo *philo)
 	}
 }
 
-/**
- * @brief
- * 부모 프로세스에서 임의의 자식이 종료 되는것을 기다림
- * WEIXTSTATUS(child_status) 를 사용해서 FINISH_EAT과 같지 않으면(죽거나 그외 오류) 다른 자식에게 kill 시그널 전송
- * @param philo
- */
 static void	ft_wait_child(t_philo *philo)
 {
 	long	index;
@@ -65,23 +59,10 @@ static void	ft_wait_child(t_philo *philo)
 	}
 }
 
-void	check(void)
-{
-	system("leaks philo_bonus");
-}
-/**
- * @brief
- * 세마포어를 사용해서 philo를 생성
- * @각 철학자의 pid를 담을 배열 생성
- * @param ac
- * @param av
- * @return int
- */
 int	main(int ac, char **av)
 {
-	t_philo philo;
+	t_philo	philo;
 
-	atexit(check);
 	if (!(ac == 5 || ac == 6))
 		return (ft_error("invalid argument count", EXIT_FAILURE));
 	if (ft_philo_init(ac, av, &philo) == FAILURE)
