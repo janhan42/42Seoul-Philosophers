@@ -6,11 +6,11 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:51:25 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 16:34:04 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:14:48 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "../includes/philo.h"
 
 int	main(int ac, char **av)
 {

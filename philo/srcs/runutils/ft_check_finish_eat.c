@@ -6,18 +6,12 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:57:57 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/27 19:26:23 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/07 13:30:03 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
-#include <pthread.h>
-/**
- * @brief
- * must_eat_count 즉 최소 식사 수가 정해져있을때 전체 철학자가 다 먹었는지 체크
- * @param philo
- * @return int TRUE or FALSE
- */
+
 int	ft_check_finish_eat(t_philo *philo)
 {
 	long	count;

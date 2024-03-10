@@ -6,20 +6,12 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 11:15:15 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/23 11:44:21 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:14:15 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-/**
- * @brief
- * philosopher의 기본적인 정보를 초기화 시키는 함수.
- * @param ac
- * @param av
- * @param info
- * @return int 성공 여부를 리턴
- */
 int	ft_info_init(int ac, char **av, t_info *info)
 {
 	info->ac = ac;

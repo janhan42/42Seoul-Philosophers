@@ -6,16 +6,16 @@
 #    By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 22:16:59 by janhan            #+#    #+#              #
-#    Updated: 2024/02/27 19:26:46 by janhan           ###   ########.fr        #
+#    Updated: 2024/03/02 08:14:53 by janhan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=		philo
 CC				=		cc
 
-CFLAGS			=		-Wall -Wextra -Werror -fsanitize=thread
+CFLAGS			=		-Wall -Wextra -Werror
 
-SRCS_MAN		=	philo.c							\
+SRCS_MAN		=	srcs/philo.c						\
 					srcs/init/ft_fork_init.c			\
 					srcs/init/ft_info_init.c			\
 					srcs/init/ft_philo_init.c			\

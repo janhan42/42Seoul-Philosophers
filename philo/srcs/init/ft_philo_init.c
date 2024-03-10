@@ -6,20 +6,12 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:04:49 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/27 19:24:37 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:14:11 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-/**
- * @brief
- * 철학자의 변수 초기화
- * @if (info-philos[count]->philo_id == 1)
- * @첫번째 철학자 일때 오른쪽 포크를 마지막 철학자의 포크로 지정
- * @param info
- * @param count
- */
 static void	ft_set_philo_vars(t_info *info, long count)
 {
 	info->philos[count]->philo_id = count + 1;
@@ -35,12 +27,6 @@ static void	ft_set_philo_vars(t_info *info, long count)
 	pthread_mutex_init(&(info->philos[count]->info->eat_enough_flag), NULL);
 }
 
-/**
- * @brief
- * 철학자 배열 생성
- * @param info
- * @return int
- */
 int	ft_philo_init(t_info *info)
 {
 	long	count;

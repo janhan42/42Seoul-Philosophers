@@ -6,18 +6,12 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:14:41 by janhan            #+#    #+#             */
-/*   Updated: 2024/03/02 08:04:53 by janhan           ###   ########.fr       */
+/*   Updated: 2024/03/02 08:59:52 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_bonus.h"
 
-/**
- * @brief
- * fork()시 부모 프로세스에서는 자식 프로세스들의 pid값이 리턴되는것과
- * @자식 프로세스에서는 pid가 0으로 나오는걸 활용하여 부모는 개별로 빠짐
- * @param philo
- */
 static void	ft_create_child(t_philo *philo)
 {
 	long	index;
@@ -43,7 +37,7 @@ static void	ft_wait_child(t_philo *philo)
 	while (index < philo->num_of_philo)
 	{
 		waitpid(-1, &child_status, 0);
-		child_exit_code = WEXITSTATUS(child_status);
+		child_exit_code = (child_status >> 8) & 0xFF;
 		if (child_exit_code != FINISH_EAT)
 		{
 			index = 0;
